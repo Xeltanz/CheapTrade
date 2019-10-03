@@ -22,7 +22,7 @@ public class ApplicationConfiguration {
     @Bean
     public CommandLineRunner commandLineRunner(UserService userService) {
         return args -> {
-            User kristof = new User(1L, LocalDate.now(), "Kristóf", "kristofka@citromail.hu", "pass");
+            User kristof = new User(1L, LocalDate.now(), "Ferenc", "kristofka@citromail.hu", "pass");
             userService.save(kristof);
         };
     }
