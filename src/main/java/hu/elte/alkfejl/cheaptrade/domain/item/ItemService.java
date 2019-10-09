@@ -2,7 +2,7 @@ package hu.elte.alkfejl.cheaptrade.domain.item;
 
 import hu.elte.alkfejl.cheaptrade.domain.GenericService;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface ItemService extends GenericService<Item> {
     /**
@@ -11,5 +11,7 @@ public interface ItemService extends GenericService<Item> {
      * @param itemName keresett név
      * @return a keresendő névre illő találatok
      */
-    Optional<Item> findByName(String itemName);
+    List<Item> findByName(String itemName);
+
+
 }

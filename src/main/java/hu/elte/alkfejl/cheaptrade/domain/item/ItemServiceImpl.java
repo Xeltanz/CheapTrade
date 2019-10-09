@@ -36,7 +36,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Optional<Item> findByName(String itemName) {
+    public List<Item> findByName(String itemName) {
         return itemRepository.findByName(itemName);
     }
 }

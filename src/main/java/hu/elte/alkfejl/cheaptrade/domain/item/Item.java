@@ -35,4 +35,8 @@ public class Item extends BaseEntity {
     private LocalDateTime expireDate;
 
     private String picturePath;
+
+    private Category category;
+
+    private boolean isActive;
 }
