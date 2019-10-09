@@ -1,39 +1,10 @@
 package hu.elte.alkfejl.cheaptrade.domain.user;
 
-import java.util.List;
+import hu.elte.alkfejl.cheaptrade.domain.GenericService;
+
 import java.util.Optional;
 
-public interface UserService {
-    /**
-     * Új felhasználó hozzáadása
-     *
-     * @param user új felhasználó
-     * @return regisztrált felhasználó
-     */
-    User save(User user);
-
-    /**
-     * Felhasználó törlése
-     *
-     * @param user törölni kívánt felhasználó
-     */
-    void delete(User user);
-
-    /**
-     * Az összes felhasználó lekérése
-     *
-     * @return összes felhasználó listában
-     */
-    List<User> findAll();
-
-    /**
-     * Felhasználó keresése azonosító alapján
-     *
-     * @param id felhasználó azonosító
-     * @return keresett felhasználó
-     */
-    Optional<User> findById(Long id);
-
+public interface UserService extends GenericService<User> {
     /**
      * felhasználó keresése név alapján
      *

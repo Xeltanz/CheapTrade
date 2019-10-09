@@ -1,44 +1,38 @@
 package hu.elte.alkfejl.cheaptrade.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import hu.elte.alkfejl.cheaptrade.domain.BaseEntity;
+import hu.elte.alkfejl.cheaptrade.domain.item.Item;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.List;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
+@ToString(callSuper = true)
+
 @Entity
-public class User {
+@Table(uniqueConstraints = @UniqueConstraint(name = "unique_statement",
+        columnNames = {"name", "email"}))
+public class User extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
-    @SequenceGenerator(name = "id_generator", sequenceName = "sequences", allocationSize = 40)
-    @Column(nullable = false)
-    private Long id;
-
-    @Column(nullable = false)
-    private LocalDate createdAt;
-
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String password;
 
 
-//    @Column(nullable = false)
 //    @Enumerated(value = EnumType.STRING)
 //    private Authority authority;
 
-//    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.REMOVE)
-//    @JsonIgnore
-//    private List<Product> products;
+    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Item> items;
 //
 //    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 //    @JsonIgnore
