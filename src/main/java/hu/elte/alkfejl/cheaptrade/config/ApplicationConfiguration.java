@@ -3,11 +3,9 @@ package hu.elte.alkfejl.cheaptrade.config;
 import hu.elte.alkfejl.cheaptrade.domain.item.Item;
 import hu.elte.alkfejl.cheaptrade.domain.item.ItemRepository;
 import hu.elte.alkfejl.cheaptrade.domain.item.ItemService;
-import hu.elte.alkfejl.cheaptrade.domain.item.ItemServiceImpl;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 import hu.elte.alkfejl.cheaptrade.domain.user.UserRepository;
 import hu.elte.alkfejl.cheaptrade.domain.user.UserService;
-import hu.elte.alkfejl.cheaptrade.domain.user.UserServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +19,12 @@ public class ApplicationConfiguration {
 
     @Bean
     public UserService userService(UserRepository userRepository) {
-        return new UserServiceImpl(userRepository);
+        return new UserService(userRepository);
     }
 
     @Bean
     public ItemService itemService(ItemRepository itemRepository) {
-        return new ItemServiceImpl(itemRepository);
+        return new ItemService(itemRepository);
     }
 
     @Bean

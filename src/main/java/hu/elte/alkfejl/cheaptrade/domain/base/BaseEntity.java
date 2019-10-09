@@ -1,4 +1,4 @@
-package hu.elte.alkfejl.cheaptrade.domain;
+package hu.elte.alkfejl.cheaptrade.domain.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

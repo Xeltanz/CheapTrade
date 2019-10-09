@@ -1,23 +1,20 @@
 package hu.elte.alkfejl.cheaptrade.domain.user;
 
-import hu.elte.alkfejl.cheaptrade.domain.GenericService;
+import hu.elte.alkfejl.cheaptrade.domain.base.GenericServiceImpl;
 
 import java.util.Optional;
 
-public interface UserService extends GenericService<User> {
-    /**
-     * felhasználó keresése név alapján
-     *
-     * @param userName keresett név
-     * @return a keresendő névre illő találatok
-     */
-    Optional<User> findByName(String userName);
+public class UserService extends GenericServiceImpl<User, UserRepository> {
 
-    /**
-     * felhasználó keresése email cím alapján
-     *
-     * @param email keresett emailcím
-     * @return a keresendő névre illő találat
-     */
-    Optional<User> findByEmail(String email);
+    public UserService(UserRepository repository) {
+        super(repository);
+    }
+
+    public Optional<User> findByName(String userName) {
+        return repository.findByName(userName);
+    }
+
+    public Optional<User> findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
 }

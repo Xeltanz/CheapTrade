@@ -1,10 +1,10 @@
 package hu.elte.alkfejl.cheaptrade.domain.user;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import hu.elte.alkfejl.cheaptrade.domain.base.GenericRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends GenericRepository<User> {
     Optional<User> findByName(String name);
 
     Optional<User> findByCreatedAt(String name);

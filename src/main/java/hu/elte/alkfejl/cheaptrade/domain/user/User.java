@@ -1,7 +1,7 @@
 package hu.elte.alkfejl.cheaptrade.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import hu.elte.alkfejl.cheaptrade.domain.BaseEntity;
+import hu.elte.alkfejl.cheaptrade.domain.base.BaseEntity;
 import hu.elte.alkfejl.cheaptrade.domain.item.Item;
 import lombok.*;
 

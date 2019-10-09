@@ -1,11 +1,11 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import hu.elte.alkfejl.cheaptrade.domain.base.GenericRepository;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends GenericRepository<Item> {
     Optional<Item> findByName(String name);
 
     Optional<Item> findByCreatedAt(LocalDate createdAt);

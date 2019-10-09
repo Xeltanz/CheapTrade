@@ -1,15 +1,16 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
-import hu.elte.alkfejl.cheaptrade.domain.GenericService;
+import hu.elte.alkfejl.cheaptrade.domain.base.GenericServiceImpl;
 
 import java.util.Optional;
 
-public interface ItemService extends GenericService<Item> {
-    /**
-     * felhasználó keresése név alapján
-     *
-     * @param itemName keresett név
-     * @return a keresendő névre illő találatok
-     */
-    Optional<Item> findByName(String itemName);
+public class ItemService extends GenericServiceImpl<Item, ItemRepository> {
+
+    public ItemService(ItemRepository repository) {
+        super(repository);
+    }
+
+    public Optional<Item> findByName(String itemName) {
+        return repository.findByName(itemName);
+    }
 }

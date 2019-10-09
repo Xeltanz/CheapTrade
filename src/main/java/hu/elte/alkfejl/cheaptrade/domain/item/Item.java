@@ -1,7 +1,7 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
 
-import hu.elte.alkfejl.cheaptrade.domain.BaseEntity;
+import hu.elte.alkfejl.cheaptrade.domain.base.BaseEntity;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 import lombok.*;
 
