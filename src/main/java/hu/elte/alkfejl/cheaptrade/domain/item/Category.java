@@ -1,5 +1,8 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
 public enum Category {
-    //make categories
+    /*
+     * divat, műszaki cikk, sport, autó, otthon, kert, mobiltelefon, szórakozás, ingatlan
+     *
+     * */
 }
