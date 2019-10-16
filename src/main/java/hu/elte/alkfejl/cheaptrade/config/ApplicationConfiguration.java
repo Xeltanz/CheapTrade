@@ -3,7 +3,6 @@ package hu.elte.alkfejl.cheaptrade.config;
 import hu.elte.alkfejl.cheaptrade.domain.bid.Bid;
 import hu.elte.alkfejl.cheaptrade.domain.bid.BidRepository;
 import hu.elte.alkfejl.cheaptrade.domain.bid.BidService;
-import hu.elte.alkfejl.cheaptrade.domain.bid.BidServiceImpl;
 import hu.elte.alkfejl.cheaptrade.domain.item.Item;
 import hu.elte.alkfejl.cheaptrade.domain.item.ItemRepository;
 import hu.elte.alkfejl.cheaptrade.domain.item.ItemService;
@@ -33,7 +32,7 @@ public class ApplicationConfiguration {
 
     @Bean
     public BidService bitService(BidRepository bidRepository) {
-        return new BidServiceImpl(bidRepository);
+        return new BidService(bidRepository);
     }
 
     @Bean

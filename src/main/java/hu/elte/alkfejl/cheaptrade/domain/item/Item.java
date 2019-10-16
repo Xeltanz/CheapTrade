@@ -39,4 +39,6 @@ public class Item extends BaseEntity {
     private Category category;
 
     private boolean isActive;
+
+    //todo bid lista onetomany
 }
