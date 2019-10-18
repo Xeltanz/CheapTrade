@@ -1,14 +1,16 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.elte.alkfejl.cheaptrade.domain.base.BaseEntity;
+import hu.elte.alkfejl.cheaptrade.domain.bid.Bid;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -36,9 +38,12 @@ public class Item extends BaseEntity {
 
     private String picturePath;
 
+    @Enumerated(value = EnumType.STRING)
     private Category category;
 
     private boolean isActive;
 
-    //todo bid lista onetomany
+    @OneToMany(mappedBy = "item", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Bid> bids;
 }

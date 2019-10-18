@@ -3,8 +3,8 @@ package hu.elte.alkfejl.cheaptrade.controller;
 import hu.elte.alkfejl.cheaptrade.domain.base.BaseEntity;
 import hu.elte.alkfejl.cheaptrade.domain.base.GenericRepository;
 import hu.elte.alkfejl.cheaptrade.domain.base.GenericServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +25,21 @@ public abstract class GenericController<T extends BaseEntity, R extends GenericR
     @GetMapping("/{id}")
     public Optional<T> findById(@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<T> post(@RequestBody T t) {
+        return ResponseEntity.ok(service.save(t));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<T> update(@PathVariable Long id, @RequestBody T entity) {
+        Optional<T> oT = service.findById(id);
+        if (oT.isPresent()) {
+            entity.setId(id);
+            return ResponseEntity.ok(service.save(entity));
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }
