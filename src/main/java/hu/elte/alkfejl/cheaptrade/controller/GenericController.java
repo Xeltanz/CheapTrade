@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public abstract class GenericController<T extends BaseEntity, R extends GenericRepository<T>, S extends GenericServiceImpl<T, R>> {
 
-    final S service;
+    private final S service;
 
     protected GenericController(S service) {
         this.service = service;
