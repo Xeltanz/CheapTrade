@@ -10,14 +10,22 @@ import hu.elte.alkfejl.cheaptrade.domain.item.ItemService;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 import hu.elte.alkfejl.cheaptrade.domain.user.UserRepository;
 import hu.elte.alkfejl.cheaptrade.domain.user.UserService;
+import hu.elte.alkfejl.cheaptrade.service.NotificationService;
+import hu.elte.alkfejl.cheaptrade.service.NotificationServiceImpl;
+import hu.elte.alkfejl.cheaptrade.service.ScheduleService;
+import hu.elte.alkfejl.cheaptrade.service.ScheduleServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.math.BigDecimal;
+import java.time.Clock;
 import java.util.Arrays;
 
 @Configuration
+@EnableScheduling
 public class ApplicationConfiguration {
 
 
@@ -34,6 +42,21 @@ public class ApplicationConfiguration {
     @Bean
     public BidService bitService(BidRepository bidRepository) {
         return new BidService(bidRepository);
+    }
+
+    @Bean
+    public ScheduleService scheduleService(Clock clock, ItemService itemService, NotificationService notificationService, BidService bidService) {
+        return new ScheduleServiceImpl(clock, itemService, notificationService, bidService);
+    }
+
+    @Bean
+    public NotificationService notificationService(JavaMailSender javaMailSender) {
+        return new NotificationServiceImpl(javaMailSender);
+    }
+
+    @Bean
+    public Clock clock() {
+        return Clock.systemDefaultZone();
     }
 
     @Bean
