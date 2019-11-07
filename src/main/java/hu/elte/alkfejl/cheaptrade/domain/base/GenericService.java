@@ -11,6 +11,8 @@ public interface GenericService<T> {
 
     void delete(T T);
 
+    void deleteById(Long id);
+
     List<T> findAll();
 
     Optional<T> findById(Long id);

@@ -27,6 +27,11 @@ public abstract class GenericServiceImpl<T extends BaseEntity, R extends Generic
     }
 
     @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
     public List<T> findAll() {
         return repository.findAll();
     }
