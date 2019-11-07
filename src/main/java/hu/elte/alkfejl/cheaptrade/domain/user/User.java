@@ -27,9 +27,8 @@ public class User extends BaseEntity {
 
     private String password;
 
-
-//    @Enumerated(value = EnumType.STRING)
-//    private Authority authority;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.REMOVE)
     @JsonIgnore
@@ -38,4 +37,8 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JsonIgnore
     private List<Bid> bids;
+
+    public enum Role {
+        GUEST, USER, ADMIN
+    }
 }
