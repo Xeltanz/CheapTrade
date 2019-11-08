@@ -37,4 +37,6 @@ Az eladó által megadott értékről indul, és a vevőnek az adott ár fölé 
 Opcionálisan megadható egy kivásárlási ár, ekkor a vevő azonnal megszerezheti a terméket és azonnal lezárul a licit. 
 Ha nem érkezik licit egy árura annak a lejárati dátuma előtt, akkor is lezárul az aukció, és senki nem kapja meg az árut.  
 
-![](docs/images/uml.png)
+![uml diagram](docs/images/uml.png)
+
+![use case diagram](docs/images/usecase_plan.png)
