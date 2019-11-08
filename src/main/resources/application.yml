@@ -11,8 +11,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: sebok.kornel9c@gmail.com
-    password: ${email_pass}
+    username: cheapt861@gmail.com
+    password: cheaptrade19
     protocol: smtp
     properties.mail.smtp:
       auth: true
@@ -21,7 +21,7 @@ spring:
       writetimeout: 10000
       starttls.enable: true
       ssl.trust: smtp.gmail.com
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type.descriptor.sql: trace
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+#    org.hibernate.type.descriptor.sql: trace

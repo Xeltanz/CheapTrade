@@ -1,6 +1,7 @@
 package hu.elte.alkfejl.cheaptrade.domain.item;
 
 import hu.elte.alkfejl.cheaptrade.domain.base.GenericRepository;
+import hu.elte.alkfejl.cheaptrade.domain.category.Category;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface ItemRepository extends GenericRepository<Item> {
 
     List<Item> findByUserId(Long id);
 
-    List<Item> findByCategory(Category category);
+    List<Item> findByCategories(Category category);
 }

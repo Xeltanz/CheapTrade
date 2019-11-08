@@ -4,6 +4,7 @@ package hu.elte.alkfejl.cheaptrade.domain.item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import hu.elte.alkfejl.cheaptrade.domain.base.BaseEntity;
 import hu.elte.alkfejl.cheaptrade.domain.bid.Bid;
+import hu.elte.alkfejl.cheaptrade.domain.category.Category;
 import hu.elte.alkfejl.cheaptrade.domain.user.User;
 import lombok.*;
 
@@ -38,8 +39,9 @@ public class Item extends BaseEntity {
 
     private String picturePath;
 
-    @Enumerated(value = EnumType.STRING)
-    private Category category;
+    //@Enumerated(value = EnumType.STRING)
+    @ManyToMany
+    private List<Category> categories;
 
     private boolean isActive;
 
