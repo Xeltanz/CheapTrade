@@ -37,24 +37,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
-
-        http.authorizeRequests()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .invalidateHttpSession(true) ///default
-                .clearAuthentication(true).and() //default
-                .headers()
-                .frameOptions()
-                .disable().and()
-                .csrf()
-                .disable();
+        http.httpBasic().disable();
+//        http.authorizeRequests()
+//                .anyRequest()
+//                .authenticated().and()
+//                .formLogin()
+//                .and()
+//                .logout()
+//                .logoutUrl("/logout")
+//                .invalidateHttpSession(true) ///default
+//                .clearAuthentication(true).and() //default
+//                .headers()
+//                .frameOptions()
+//                .disable().and()
+//                .csrf()
+//                .disable();
 
         // @formatter:on
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

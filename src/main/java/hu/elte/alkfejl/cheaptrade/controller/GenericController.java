@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 public abstract class GenericController<T extends BaseEntity, R extends GenericRepository<T>, S extends GenericServiceImpl<T, R>> {
 
     private final S service;
@@ -20,7 +21,7 @@ public abstract class GenericController<T extends BaseEntity, R extends GenericR
 
     @GetMapping("")
     public List<T> findAllItem() {
-        return service.findAll();
+        return (List<T>) service.findAll();
     }
 
     @GetMapping("/{id}")

@@ -46,10 +46,10 @@ public class ScheduleServiceImpl implements ScheduleService {
             //aukció győztesének
             notificationService.sendEmail(topBid.get().getUser().getEmail(), "CheatTrade - Nyertes Aukció Lezárult", "Gratulálunk, megnyertél egy aukciót! \n Tárgy:" + item.getName() + "\n" + CheapTradeUtils.formatBigDecimal(topBid.get().getAmount()) + " HUF" + "\nTulajdonos címe: " + item.getUser().getEmail());
             //aukció tulajdonosának
-            notificationService.sendEmail(item.getUser().getEmail(), "CheatTrade - Aukciód Lezárult", topBid.get().getUser().getName() + " nyerte meg a következö aukciódat: " + item.getName() + ".\n" + CheapTradeUtils.formatBigDecimal(topBid.get().getAmount()) + " HUF" + "\ncíme: " + topBid.get().getUser().getEmail());
+            notificationService.sendEmail(item.getUser().getEmail(), "CheapTrade - Aukciód Lezárult", topBid.get().getUser().getName() + " nyerte meg a következö aukciódat: " + item.getName() + ".\n" + CheapTradeUtils.formatBigDecimal(topBid.get().getAmount()) + " HUF" + "\ncíme: " + topBid.get().getUser().getEmail());
         } else {
             //aukció tulajdonosának (nincs licit)
-            notificationService.sendEmail(item.getUser().getEmail(), "ebéj - Aukciód Lezárult", "Nem érkezett licit az aukciódra: " + item.getName());
+            notificationService.sendEmail(item.getUser().getEmail(), "CheapTrade - Aukciód Lezárult", "Nem érkezett licit az aukciódra: " + item.getName());
         }
     }
 }

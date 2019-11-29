@@ -82,7 +82,7 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(UserService userService, ItemService itemService, BidService bidService, CategoryService categoryService) {
+    public CommandLineRunner init(UserService userService, ItemService itemService, BidService bidService, CategoryService categoryService) {
         return args -> {
             User kristof = User.builder().name("mata").email("mordecaivv@gmail.com").password(passwordEncoder().encode("pass")).role(User.Role.USER).build();
             User soma = User.builder().name("soma").email("soma@freemail.hu").password(passwordEncoder().encode("1234")).role(User.Role.USER).build();
