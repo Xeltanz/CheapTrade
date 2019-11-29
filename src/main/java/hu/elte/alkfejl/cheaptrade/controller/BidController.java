@@ -13,5 +13,4 @@ public class BidController extends GenericController<Bid, BidRepository, BidServ
     protected BidController(BidService service) {
         super(service);
     }
-
 }

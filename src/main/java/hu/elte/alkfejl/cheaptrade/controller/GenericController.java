@@ -13,7 +13,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 public abstract class GenericController<T extends BaseEntity, R extends GenericRepository<T>, S extends GenericServiceImpl<T, R>> {
 
-    private final S service;
+    protected final S service;
 
     protected GenericController(S service) {
         this.service = service;
