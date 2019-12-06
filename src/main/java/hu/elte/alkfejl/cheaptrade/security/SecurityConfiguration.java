@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -36,24 +37,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
-        http.httpBasic().disable();
-//        http.authorizeRequests()
-//                .anyRequest()
-//                .authenticated().and()
-//                .formLogin()
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .invalidateHttpSession(true) ///default
-//                .clearAuthentication(true).and() //default
-//                .headers()
-//                .frameOptions()
-//                .disable().and()
-//                .csrf()
-//                .disable();
-
-        // @formatter:on
+        http.cors()
+                .and()
+                .csrf().disable()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .and()
+                .headers()      // important!
+                .frameOptions().disable()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
 
