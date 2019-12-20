@@ -21,7 +21,6 @@ export class UserFormComponent {
 
   onSubmit() {
     this.userService.save(this.user).subscribe(result => this.gotoUserList());
-    console.log('scope is ' + this.user);
   }
 
   gotoUserList() {

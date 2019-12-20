@@ -1,0 +1,28 @@
+.ListStyle {
+  list-style: none;
+  /*padding-inline-start: 5%;*/
+
+  margin-top: 50px;
+  width: 10px;
+
+}
+
+.listElement {
+  display: inline-block;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 17px;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 140px;
+  white-space: nowrap;;
+}
+
+.textStyle {
+  min-width: 50px;
+}
+
+li:not(:last-child) {
+  margin-bottom: 10px;
+}

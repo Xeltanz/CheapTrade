@@ -1,0 +1,30 @@
+<div *ngIf="user">
+  <ul class="ListStyle">
+    <li class="listElement">
+      <tr>
+        <th class="textStyle">Your Username:</th>
+        <th>{{ user.name }}</th>
+      </tr>
+    </li>
+    <li class="listElement">
+      <tr>
+        <th class="textStyle">Joined at:</th>
+        <th>{{ user.createdAt }}</th>
+      </tr>
+    </li>
+    <li class="listElement">
+      <tr class="textStyle">
+        <th>E-mail:</th>
+        <th>{{ user.email }}</th>
+      </tr>
+    </li>
+    <li class="listElement">
+      <tr>
+        <th>Role:</th>
+        <th>{{ user.role }}</th>
+      </tr>
+    </li>
+  </ul>
+
+
+</div>

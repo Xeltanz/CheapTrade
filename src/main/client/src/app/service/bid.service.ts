@@ -1,35 +1,35 @@
 import {Injectable} from '@angular/core';
-import {User} from '../model/user';
-import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Bid} from '../model/bid';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class UserService {
+export class BidService {
 
-  private usersUrl: string;
+  private bidsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users';
+    this.bidsUrl = 'http://localhost:8080/bids';
   }
 
-  public findAll(): Observable<User[]> {
+  public findAll(): Observable<Bid[]> {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.get<User[]>(this.usersUrl, {headers});
+    return this.http.get<Bid[]>(this.bidsUrl, {headers});
   }
 
-  public findById(id: Number): Observable<User> {
+  public findById(id: Number): Observable<Bid> {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.get<User>(this.usersUrl + "/" + id, {headers});
+    return this.http.get<Bid>(this.bidsUrl + "/" + id, {headers});
   }
 
-  public save(user: User) {
+  public save(bid: Bid) {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.post<User>(this.usersUrl + "/", user, {headers});
+    return this.http.post<Bid>(this.bidsUrl + "/", bid, {headers});
   }
 }

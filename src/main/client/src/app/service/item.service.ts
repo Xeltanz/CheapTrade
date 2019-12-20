@@ -1,35 +1,36 @@
 import {Injectable} from '@angular/core';
-import {User} from '../model/user';
-import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Item} from '../model/item';
+import {Observable} from 'rxjs/Observable';
+
 
 @Injectable()
-export class UserService {
+export class ItemService {
 
-  private usersUrl: string;
+  private itemsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users';
+    this.itemsUrl = 'http://localhost:8080/items';
   }
 
-  public findAll(): Observable<User[]> {
+  public findAll(): Observable<Item[]> {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.get<User[]>(this.usersUrl, {headers});
+    return this.http.get<Item[]>(this.itemsUrl, {headers});
   }
 
-  public findById(id: Number): Observable<User> {
+  public findById(id: Number): Observable<Item> {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.get<User>(this.usersUrl + "/" + id, {headers});
+    return this.http.get<Item>(this.itemsUrl + "/" + id, {headers});
   }
 
-  public save(user: User) {
+  public save(item: Item) {
     let username = "mata"
     let password = 'pass'
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.post<User>(this.usersUrl + "/", user, {headers});
+    return this.http.post<Item>(this.itemsUrl + "/", item, {headers});
   }
 }

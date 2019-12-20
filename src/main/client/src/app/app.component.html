@@ -1,20 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card bg-dark my-5">
+      <div class="card bg-dark">
         <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item">
-              <a class="btn btn-info" routerLink="/users">List Users</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-info" routerLink="/adduser">Add User</a>
-            </li>
-          </ul>
         </div>
       </div>
-      <router-outlet></router-outlet>
+      <div class="mainArea">
+        <div class="row">
+          <div class="col-3">
+            <div class="sideBar">
+              <ul class="buttonListStyle">
+                <li><a class="button" routerLink="/login">Login</a></li>
+                <li><a class="button" routerLink="/users">List Users</a></li>
+                <li><a class="button" routerLink="/adduser">Add User</a></li>
+                <li><a class="button" routerLink="/currentuser">Account</a></li>
+                <li><a class="button" routerLink="/bids">List Bids</a></li>
+                <li><a class="button" routerLink="/items">List Items</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="contentStyle col-9">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
